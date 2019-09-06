@@ -1,7 +1,7 @@
 node {
    
    stage('Code Checkout') { // for display purposes
-    git credentialsId: 'githubID', url: 'https://github.com/itrainpadman/maven-examples.git'  
+    git credentialsId: 'githubID', url: 'https://github.com/Shrij34/maven-examples.git'  
    }
    stage('Code Build') {
     withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
@@ -16,10 +16,10 @@ node {
    stage('SonarQube Analysis') {
        withMaven(jdk: 'JDK-1.8', maven: 'Maven-3.6.1') {
        sh 'mvn sonar:sonar \
-           -Dsonar.projectKey=maven-example-padman \
-           -Dsonar.organization=itrainpadman \
-           -Dsonar.host.url=https://sonarcloud.io \
-           -Dsonar.login=ef4b147fcb4eea67d0e0a5a182f4b85289f2c8c1'
+             -Dsonar.projectKey=itrain_padman \
+             -Dsonar.organization=itrainpadman1 \
+             -Dsonar.host.url=https://sonarcloud.io \
+             -Dsonar.login=fbc70550bbc212ffe48bf7a74b3fb769e0a37673'
        }
    } 
    stage('Archive to Jfrog') {
